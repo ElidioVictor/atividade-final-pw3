@@ -7,6 +7,8 @@ function Turma(){
 
     const  [siglaTurma, setSiglaTurma] = useState([]);
 
+    const [nomeTurma, setNomeTurma] = useState({})
+
     useEffect(()=>{
         fetch(
             'http://localhost:5000/siglaTurma',
@@ -33,12 +35,30 @@ function Turma(){
         )
     }, []);
 
+    function handlerChangeTurma(e){
+
+        setNomeTurma({... nomeTurma, [e.target.name] : e.target.value})
+        //console.log(nomeTurma)
+
+    }
+
+    function handlerChangeSigla(e){
+
+        setSiglaTurma({... Turma, siglaTurma:{
+            id: e.target.value,
+            siglaTurma: e.target.options[e.target.selectIndex].text
+        }})
+    }
+
+    console.log(nomeTurma)
+
     return(
 
         <div>
             <h1>Formulario de Turma</h1>
             <form className={styles.form}>
                 <Input
+                    handlerOnChange={handlerChangeTurma}
                     type='text'
                     name='nome'
                     placeholder='digite o nome da sua turma'
