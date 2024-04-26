@@ -44,19 +44,44 @@ function Turma(){
 
     function handlerChangeSigla(e){
 
-        setSiglaTurma({... Turma, siglaTurma:{
+        setSiglaTurma({... nomeTurma, siglaTurma:{
             id: e.target.value,
-            siglaTurma: e.target.options[e.target.selectIndex].text
+            siglaTurma : e.target.options[e.target.selectedIndex].text
         }})
+        
     }
 
-    console.log(nomeTurma)
+        
+    function createTurma(nomeTurma){
+        fetch('http://localhost:5000/nomeTurma',{
+            method:'POST',
+            headers:{
+                'Content-Type' : 'application/json'
+            },
+
+            body: JSON.stringify(nomeTurma)
+        })
+        .then(
+            (resp)=>resp.json())
+        .then(
+            (data) =>{console.log(data)
+            })
+        .catch(
+            (error) =>{console.log(error)
+            
+            })    
+    }
+
+    function submit(e){
+        e.preventDefault()
+        createTurma(nomeTurma)
+    }
 
     return(
 
         <div>
             <h1>Formulario de Turma</h1>
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={submit}>
                 <Input
                     handlerOnChange={handlerChangeTurma}
                     type='text'
@@ -66,10 +91,13 @@ function Turma(){
                 />
 
                 <Select
-                    name='turma_id'
+                    name='sigla_id'
                     text='selecione sua turma'
                     options={siglaTurma}
+                    handlerOnChange={handlerChangeSigla}
                 />
+
+                <input type='submit' value='cadastrar'/>
 
             </form>
         </div>

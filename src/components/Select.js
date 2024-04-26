@@ -1,6 +1,6 @@
 import styles from './Select.module.css'
 
-function Select({name, text, options, handlerOnChange,}){
+function Select({text, name, options, handlerOnChange,}){
     return(
         <div className={styles.form_control}>
 

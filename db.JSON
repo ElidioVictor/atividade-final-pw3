@@ -1,20 +1,21 @@
 {
-    "nomeTurma":[],
-    
-    "siglaTurma":[
-        {
-            "id": 1,
-            "sigla": "1°DS"
-        },
-
-        {
-            "id": 2,
-            "sigla": "2°DS"
-        },
-
-        {
-            "id": 3,
-            "sigla": "3°DS"
-        }
-    ]
+  "nomeTurma": [
+    {
+      "id": "2c31"
+    }
+  ],
+  "siglaTurma": [
+    {
+      "id": "1",
+      "sigla": "1°DS"
+    },
+    {
+      "id": "2",
+      "sigla": "2°DS"
+    },
+    {
+      "id": "3",
+      "sigla": "3°DS"
+    }
+  ]
 }
