@@ -38,21 +38,20 @@ function Turma(){
     function handlerChangeTurma(e){
 
         setNomeTurma({... nomeTurma, [e.target.name] : e.target.value})
-        //console.log(nomeTurma)
 
-    }
+    };
 
     function handlerChangeSigla(e){
 
-        setSiglaTurma({... nomeTurma, siglaTurma:{
-            id: e.target.value,
+        setNomeTurma({... nomeTurma, siglaTurma:{
+            id : e.target.value,
             siglaTurma : e.target.options[e.target.selectedIndex].text
         }})
-        
-    }
+    };
 
-        
-    function createTurma(nomeTurma){
+
+    
+    function createTurma(){
         fetch('http://localhost:5000/nomeTurma',{
             method:'POST',
             headers:{
@@ -63,15 +62,15 @@ function Turma(){
         })
         .then(
             (resp)=>resp.json())
+
         .then(
-            (data) =>{console.log(data)
-            })
+            (data) =>{console.log(data)  
+        })
         .catch(
             (error) =>{console.log(error)
-            
-            })    
+        })
     }
-
+    
     function submit(e){
         e.preventDefault()
         createTurma(nomeTurma)
@@ -91,10 +90,10 @@ function Turma(){
                 />
 
                 <Select
-                    name='sigla_id'
+                    handlerOnChange={handlerChangeSigla}
+                    name='sigla_turma'
                     text='selecione sua turma'
                     options={siglaTurma}
-                    handlerOnChange={handlerChangeSigla}
                 />
 
                 <input type='submit' value='cadastrar'/>

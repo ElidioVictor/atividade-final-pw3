@@ -1,7 +1,20 @@
 {
   "nomeTurma": [
     {
-      "id": "2c31"
+      "id": "21fd",
+      "siglaTurma": {
+        "id": "3",
+        "siglaTurma": ""
+      },
+      "nome": "teste"
+    },
+    {
+      "id": "6dd5",
+      "siglaTurma": {
+        "id": "2",
+        "siglaTurma": "2°DS"
+      },
+      "nome": "teste"
     }
   ],
   "siglaTurma": [
